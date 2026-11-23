@@ -1,0 +1,34 @@
+Locally bundled botanical photographs
+
+Wikimedia Commons photographs:
+- purple-iris.jpg — Derek Ramsey (Ram-Man), with Chanticleer Garden; CC BY-SA 3.0.
+  https://commons.wikimedia.org/wiki/File:Iris_ensata_%27Arctic_Fancy%27_Flower_2939px.jpg
+- white-iris.jpg — Laitche; CC BY-SA 3.0.
+  https://commons.wikimedia.org/wiki/File:Iris_ensata_Thunb.jpg
+- sunflower.jpg — Dietmar Rabich; CC BY-SA 4.0.
+  https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Weddern,_Sonnenblumen_--_2026_--_2005.jpg
+- purple-orchid.jpg — Cyrill; CC0.
+  https://commons.wikimedia.org/wiki/File:Vibrant_purple_orchid_flowers_macro_shot.jpg
+- tulip.jpg — W.carter; CC0.
+  https://commons.wikimedia.org/wiki/File:Big_red_tulips_with_small_hoverfly.jpg
+- lavender-field.jpg — Steffen Bauer (SaatPilot); CC BY 4.0.
+  https://commons.wikimedia.org/wiki/File:Lavandula_angustifolia_(English_lavender)_(SaatPilot).jpg
+
+The Creative Commons license texts are available at:
+- https://creativecommons.org/licenses/by-sa/3.0/
+- https://creativecommons.org/licenses/by-sa/4.0/
+- https://creativecommons.org/licenses/by/4.0/
+- https://creativecommons.org/publicdomain/zero/1.0/
+- https://creativecommons.org/licenses/by/2.0/
+
+Additional locally stored Unsplash images:
+- botanical-hero.jpg — Unsplash photo ID 1490750967868-88aa4486c946.
+- flower-study.jpg — Unsplash photo ID 1487530811176-3780de880c2d.
+- petal-detail.jpg — Unsplash photo ID 1494972308805-463bc619d34e.
+
+These images are decorative UI assets. They do not contribute to analytics,
+classification, or dashboard measurements.
+
+The files in backgrounds/ are local copies of the corresponding photographs
+above (or of the Unsplash images listed above); the same attribution and
+license information applies.

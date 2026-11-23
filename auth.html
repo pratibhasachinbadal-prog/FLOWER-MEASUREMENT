@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block public_content %}
+<main class="auth-layout">
+  <section class="auth-visual">
+    <img src="{{ url_for('static', filename='assets/flower-study.jpg' if mode == 'register' else 'assets/flowers/purple-iris.jpg') }}" alt="{{ 'Pink and purple flowers in a garden' if mode == 'register' else 'Purple iris in a botanical garden' }}">
+    <div class="auth-visual-shade"></div>
+    <a class="brand brand-light auth-brand" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='assets/branding/flower-explorer-logo.svg') }}" alt="" class="brand-mark"><span><strong>Flower</strong><small>Measurement Explorer</small></span></a>
+    <a class="auth-back" href="{{ url_for('home') }}"><span aria-hidden="true">←</span> Back to welcome</a>
+    <div class="auth-hero-copy">
+      <span class="eyebrow eyebrow-light"><i></i> BOTANY, MEET DATA</span>
+      <h1>Flower<br>Measurement<br><em>Explorer</em></h1>
+      <p>Discover Nature Through Data, Measurements &amp; Intelligent Analysis.</p>
+      <div class="auth-feature-grid">
+        <article class="auth-feature"><span aria-hidden="true">⌁</span><div><strong>Analyze Flower Data</strong><small>Keep every observation in view.</small></div></article>
+        <article class="auth-feature"><span aria-hidden="true">◒</span><div><strong>Visualize Patterns</strong><small>See how measurements relate.</small></div></article>
+        <article class="auth-feature"><span aria-hidden="true">✳</span><div><strong>Explore with AI</strong><small>Find structure before labels.</small></div></article>
+        <article class="auth-feature"><span aria-hidden="true">▤</span><div><strong>Manage Datasets</strong><small>Import, review, and export.</small></div></article>
+      </div>
+    </div>
+    <span class="auth-photo-credit">IRIS STUDY · FIELD JOURNAL № 01</span>
+  </section>
+
+  <section class="auth-panel">
+    <div class="auth-glass">
+      <div class="auth-form-wrap">
+        {% if mode in ("login", "register") %}
+          <nav class="auth-tabs" aria-label="Account access">
+            <a href="{{ url_for('login') }}" {% if mode == "login" %}aria-current="page"{% endif %}>Sign in</a>
+            <a href="{{ url_for('register') }}" {% if mode == "register" %}aria-current="page"{% endif %}>Create account</a>
+          </nav>
+        {% endif %}
+        <span class="eyebrow">{{ "YOUR RESEARCH SPACE" if mode == "login" else "A NEW FIELD JOURNAL" if mode == "register" else "ACCOUNT ACCESS" }}</span>
+        {% if mode == "login" %}
+          <h2>Welcome back.</h2><p class="form-intro">Sign in to return to your observations.</p>
+          <form method="post" class="form-stack">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}"><input type="hidden" name="next" value="{{ next_path or '' }}">
+            <label>Email or username<input name="identifier" autocomplete="username" required placeholder="e.g. ava_botanist"></label>
+            <label>Password<div class="password-field"><input type="password" name="password" autocomplete="current-password" required placeholder="Your password"><button class="show-password" type="button" aria-label="Show password" data-password-toggle>Show</button></div></label>
+            <div class="form-row form-row-between"><label class="check-label"><input type="checkbox" name="remember" value="1"> Remember me</label><a class="quiet-link" href="{{ url_for('forgot_password') }}">Forgot password?</a></div>
+            <button class="button button-primary button-wide auth-submit" type="submit">Sign in <span>→</span></button>
+          </form>
+          <p class="auth-switch">New to the Explorer? <a href="{{ url_for('register') }}">Register now</a></p>
+        {% elif mode == "register" %}
+          <h2>Start your field journal.</h2><p class="form-intro">A personal place for your flower observations.</p>
+          <form method="post" class="form-stack">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+            <label>Full name<input name="full_name" autocomplete="name" maxlength="80" required placeholder="Your name"></label>
+            <label>Email address<input name="email" type="email" autocomplete="email" required placeholder="you@example.org"></label>
+            <label>Username<input name="username" autocomplete="username" minlength="3" maxlength="24" required placeholder="ava_botanist"></label>
+            <label>Password<div class="password-field"><input type="password" name="password" autocomplete="new-password" minlength="10" required placeholder="At least 10 characters" data-strength-input><button class="show-password" type="button" aria-label="Show password" data-password-toggle>Show</button></div></label>
+            <div class="password-strength" aria-live="polite"><div class="strength-track"><span class="password-strength-fill" data-strength-fill></span></div><span data-strength-label>Enter a password to check its strength</span></div>
+            <label>Confirm password<div class="password-field"><input type="password" name="confirm_password" autocomplete="new-password" minlength="10" required placeholder="Type it once more"><button class="show-password" type="button" aria-label="Show password" data-password-toggle>Show</button></div></label>
+            <p class="input-hint">Use at least 10 characters. Your password is securely hashed before it is stored.</p>
+            <button class="button button-primary button-wide auth-submit" type="submit">Create account <span>→</span></button>
+          </form>
+          <p class="auth-switch">Already have an account? <a href="{{ url_for('login') }}">Sign in</a></p>
+        {% elif mode == "forgot" %}
+          <h2>Find your way back.</h2><p class="form-intro">Enter the email address linked to your account. If it exists, we’ll send a reset link.</p>
+          <form method="post" class="form-stack"><input type="hidden" name="_csrf_token" value="{{ csrf_token() }}"><label>Email address<input name="email" type="email" autocomplete="email" required placeholder="you@example.org"></label><button class="button button-primary button-wide auth-submit" type="submit">Send reset link <span>→</span></button></form>
+          <p class="input-hint">Reset email delivery requires SMTP settings from the project operator.</p>
+          <p class="auth-switch"><a href="{{ url_for('login') }}">Return to sign in</a></p>
+        {% else %}
+          <h2>Choose a new password.</h2><p class="form-intro">Set a strong password to secure your research space.</p>
+          <form method="post" class="form-stack"><input type="hidden" name="_csrf_token" value="{{ csrf_token() }}"><label>New password<div class="password-field"><input type="password" name="password" autocomplete="new-password" minlength="10" required><button class="show-password" type="button" aria-label="Show password" data-password-toggle>Show</button></div></label><label>Confirm password<div class="password-field"><input type="password" name="confirm_password" autocomplete="new-password" minlength="10" required><button class="show-password" type="button" aria-label="Show password" data-password-toggle>Show</button></div></label><button class="button button-primary button-wide auth-submit" type="submit">Update password <span>→</span></button></form>
+        {% endif %}
+        <div class="auth-privacy"><span aria-hidden="true">◈</span> Your records belong to your account.</div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}

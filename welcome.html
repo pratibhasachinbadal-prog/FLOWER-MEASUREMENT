@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block public_content %}
+<header class="public-nav">
+  <a class="brand brand-dark" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='logo.svg') }}" alt="" class="brand-mark"><span><strong>Flower</strong><small>Measurement Explorer</small></span></a>
+  <nav><a href="#approach">Our approach</a><a href="#discover">Discover</a><a class="button button-outline button-small" href="{{ url_for('login') }}">Sign in</a><a class="button button-primary button-small" href="{{ url_for('register') }}">Create account <span>↗</span></a></nav>
+</header>
+<main>
+  <section class="landing-hero">
+    <img class="hero-photo" src="{{ url_for('static', filename='assets/botanical-hero.jpg') }}" alt="A vivid close-up of flowers in a botanical garden">
+    <div class="hero-shade"></div>
+    <div class="hero-copy">
+      <span class="eyebrow eyebrow-light"><i></i> BOTANY, MEET DATA</span>
+      <h1>Every petal<br>has a <em>pattern.</em></h1>
+      <p>Discover nature through measurements, thoughtful exploration, and intelligent analysis.</p>
+      <div class="hero-actions"><a class="button button-cream" href="{{ url_for('register') }}">Explore the workspace <span>↗</span></a><a class="text-link-light" href="#approach">See how it works <span>↓</span></a></div>
+      <div class="hero-footnote"><span class="hero-line"></span><span>AN OPEN SPACE FOR CURIOUS MINDS</span></div>
+    </div>
+    <div class="hero-caption"><span>FIELD NOTES · VOL. 01</span><span>IRIS OBSERVATIONS</span></div>
+    <div class="hero-mark"><img src="{{ url_for('static', filename='logo.svg') }}" alt=""></div>
+  </section>
+  <section class="welcome-intro page-width" id="approach">
+    <div><span class="eyebrow">A GENTLER WAY TO EXPLORE</span><h2>Small details.<br><em>Deeper discovery.</em></h2></div>
+    <div class="intro-copy"><p>Flower Measurement Explorer brings a practical scientific workflow into one welcoming place. Record the geometry of each flower, explore how observations relate, and keep the data behind every insight close at hand.</p><a class="text-link" href="{{ url_for('register') }}">Step into the lab <span>→</span></a></div>
+  </section>
+  <section class="feature-band page-width" id="discover">
+    <article class="feature-card"><span class="feature-num">01</span><span class="feature-icon">⌁</span><h3>Observe carefully</h3><p>Capture sepal and petal measurements with clear checks and dependable records.</p></article>
+    <article class="feature-card"><span class="feature-num">02</span><span class="feature-icon">◒</span><h3>See the structure</h3><p>Compare class patterns with interactive plots, descriptive summaries, and quality checks.</p></article>
+    <article class="feature-card"><span class="feature-num">03</span><span class="feature-icon">✳</span><h3>Explore without assumptions</h3><p>Use clustering and PCA to find structure without confusing exploration with classification.</p></article>
+  </section>
+  <section class="gallery-section page-width">
+    <div class="section-heading"><div><span class="eyebrow">A CLOSER LOOK</span><h2>Nature, in every detail.</h2></div><p>Beautiful observations invite better questions.</p></div>
+    <div class="photo-gallery"><figure class="gallery-large"><img src="{{ url_for('static', filename='assets/flower-study.jpg') }}" alt="Flower stems and petals in soft natural light"><figcaption>01 / FORM & LIGHT</figcaption></figure><figure><img src="{{ url_for('static', filename='assets/petal-detail.jpg') }}" alt="Detailed botanical flower study"><figcaption>02 / PETAL STUDY</figcaption></figure></div>
+  </section>
+</main>
+<footer class="landing-footer page-width"><span>FLOWER MEASUREMENT EXPLORER</span><span>Built for the curious, with care for the data.</span><a href="{{ url_for('register') }}">Begin exploring ↗</a></footer>
+{% endblock %}

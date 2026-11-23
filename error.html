@@ -1,0 +1,4 @@
+{% extends "base.html" %}
+{% block public_content %}
+<main class="error-page"><img src="{{ url_for('static', filename='logo.svg') }}" alt=""><span class="eyebrow">A SMALL DETOUR</span><h1>{{ page_title }}</h1><p>{{ message }}</p><a class="button button-primary" href="{{ url_for('home') }}">Return home <span>→</span></a></main>
+{% endblock %}

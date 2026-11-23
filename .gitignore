@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+data/flower_explorer.sqlite3
+data/flower_explorer.sqlite3-*
+data/flower_measurements.png
+data/flower_summary.*
+.vercel
+.env*
